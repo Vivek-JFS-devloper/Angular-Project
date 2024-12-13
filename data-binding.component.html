@@ -106,5 +106,12 @@
     <button class="btn btn-warning m-2" (click)="getCourseName('Java')">
       Java
     </button>
+
+    <div class="row bg-warning">
+      two way data binding
+      <div class="col-12">
+        <input type="text" [(ngModel)]="courseName" />
+      </div>
+    </div>
   </div>
 </div>
