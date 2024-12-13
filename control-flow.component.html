@@ -1,0 +1,83 @@
+<div class="row">
+  @if(isDiv1Visible == true){
+  <div class="col-3">
+    <div class="bg-success p-3">div-1</div>
+  </div>
+  }
+
+  <div class="col-3">
+    @if(div2Visible == "Yes"){
+    <div class="bg-primary p-3">div-2</div>
+    } @else{
+    <p>Hide Dive 2</p>
+    }
+  </div>
+
+  <div class="col-3">
+    @if(fullDayVisible == "Mon"){
+
+    <div class="bg-warning p-3">Monday</div>
+
+    }@else if(fullDayVisible == "Tue"){
+
+    <div class="bg-warning p-3">Tuesday</div>
+    }@else if(fullDayVisible == "Wed"){
+    <div class="bg-warning p-3">Wednesday</div>
+    }@else if(fullDayVisible == "Thu"){
+    <div class="bg-warning p-3">Thursday</div>
+    }@else if(fullDayVisible == "Fri"){
+    <div class="bg-warning p-3">Friday</div>
+    }@else if(fullDayVisible == "Sat"){
+    <div class="bg-warning p-3">Saturday</div>
+    }@else if(fullDayVisible == "Sun"){
+    <div class="bg-warning p-3">Sunday</div>
+    }@else{
+    <div class="p-3" style="background-color: #ffaadd">
+      Enter Three Words day Name
+    </div>
+    }
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col-3">
+    <div class="text-center">
+      <button class="btn btn-warning m-2" (click)="showHideDive1(false)">
+        Hide
+      </button>
+      <button class="btn btn-warning m-2" (click)="showHideDive1(true)">
+        Show
+      </button>
+      <button class="btn btn-warning m-2">Delete</button>
+    </div>
+  </div>
+
+  <div class="col-3">
+    <div class="text-center">
+      <input type="text" [(ngModel)]="div2Visible" />
+    </div>
+  </div>
+
+  <div class="col-3">
+    <div class="text-center">
+      <input type="text" [(ngModel)]="fullDayVisible" />
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-4 p-3">
+    <ul>
+      @for(item of cityList; track $index){
+      <li>{{ item }} inxes</li>
+      }
+    </ul>
+  </div>
+
+  <div class="col-4">
+    @for(city of cityList; track $index){
+    <button class="btn bg-warning m-2">{{ city }}</button>
+    } @for(city of cityList ; track $index){
+    <input type="text" [value]="city" />
+    }
+  </div>
+</div>
